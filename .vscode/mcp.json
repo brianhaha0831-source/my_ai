@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "higgsfield": {
+      "type": "sse",
+      "url": "https://mcp.higgsfield.ai/mcp"
+    }
+  }
+}

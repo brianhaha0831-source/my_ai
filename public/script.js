@@ -34,14 +34,14 @@ const STAGE_CONFIG = [
     {targetFaith:Infinity,maxPeople:50,spawnInterval:600,gradeBonus:5.0}
 ];
 const STAGE_BACKGROUNDS = [
-    "linear-gradient(180deg,#0d0d20 0%,#15102a 50%,#0d0d20 100%)",
-    "linear-gradient(180deg,#0d1020 0%,#15152a 50%,#0d1020 100%)",
-    "linear-gradient(180deg,#100d20 0%,#1a152a 50%,#100d20 100%)",
-    "linear-gradient(180deg,#120d20 0%,#20152a 50%,#120d20 100%)",
-    "linear-gradient(180deg,#151020 0%,#251530 50%,#151020 100%)",
-    "linear-gradient(180deg,#181025 0%,#2a1540 50%,#181025 100%)",
-    "linear-gradient(180deg,#1a1030 0%,#301550 50%,#1a1030 100%)",
-    "radial-gradient(ellipse at center,#3a1a5e 0%,#0a0a1a 70%)"
+    "linear-gradient(180deg,#A8D982 0%,#98D982 30%,#88CC72 60%,#7CCD7C 100%)",
+    "linear-gradient(180deg,#B0E0E6 0%,#A8D982 30%,#98D982 60%,#88CC72 100%)",
+    "linear-gradient(180deg,#87CEEB 0%,#B0E0E6 20%,#A8D982 50%,#98D982 100%)",
+    "linear-gradient(180deg,#87CEEB 0%,#B0E0E6 15%,#A8D982 40%,#98D982 70%,#88CC72 100%)",
+    "linear-gradient(180deg,#6BB6FF 0%,#87CEEB 20%,#B0E0E6 35%,#A8D982 60%,#98D982 100%)",
+    "linear-gradient(180deg,#5AAEFF 0%,#87CEEB 15%,#B0E0E6 30%,#A8D982 55%,#98D982 85%,#88CC72 100%)",
+    "linear-gradient(180deg,#4A9FE0 0%,#6BB6FF 15%,#87CEEB 30%,#B0E0E6 45%,#A8D982 70%,#98D982 100%)",
+    "radial-gradient(ellipse at center,#FFD700 0%,#87CEEB 30%,#A8D982 60%,#7CCD7C 100%)"
 ];
 const GOD_EVOLUTIONS = [
     {name:"빛의 구체",emoji:"✨",stageReq:0},{name:"작은 석상",emoji:"🗿",stageReq:1},
@@ -75,7 +75,7 @@ const BASE_ATTACK_SPEED = 3;
 const INITIAL_NPC_COUNT = 6;
 const ZOOM_MIN = 0.5, ZOOM_MAX = 2.0, ZOOM_STEP = 0.1;
 let currentZoom = 1.0;
-const SHAKE_INTENSITY = 2, SHAKE_DURATION = 100, SHAKE_COOLDOWN = 80;
+const SHAKE_INTENSITY = 1, SHAKE_DURATION = 80, SHAKE_COOLDOWN = 120;
 let lastShakeTime = 0;
 const ROUND_SPEED_BONUS = 0.08, MAX_SPEED_MULT = 2.5;
 

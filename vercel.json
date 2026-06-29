@@ -3,6 +3,5 @@
   "buildCommand": "next build",
   "devCommand": "next dev",
   "installCommand": "npm install",
-  "outputDirectory": ".next",
-  "nodeVersion": "24.x"
+  "outputDirectory": ".next"
 }

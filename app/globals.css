@@ -1,5 +1,6 @@
 /* ============================================
-   우리 동네 신 키우기 v5.0 - 스타일시트
+   우리 동네 신 키우기 v2.2 - 리스킨 스타일시트
+   밝고 따뜻한 힐링 게임 스타일
    ============================================ */
 
 /* ------ 전체 초기화 ------ */
@@ -11,8 +12,8 @@
 
 body {
     font-family: 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
-    background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
-    color: #e0d0ff;
+    background: linear-gradient(135deg, #faf3e0 0%, #f5ebe0 50%, #f0e6d2 100%);
+    color: #4a2c17;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -39,8 +40,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: radial-gradient(ellipse at center, #1a0a3e 0%, #0a0a1a 70%);
-    color: #a080d0;
+    background: radial-gradient(ellipse at center, #fef9f0 0%, #f5ebe0 70%);
+    color: #8b5a2b;
 }
 
 /* ============================================
@@ -49,7 +50,7 @@ body {
 #start-screen {
     justify-content: center;
     align-items: center;
-    background: radial-gradient(ellipse at center, #1a0a3e 0%, #0a0a1a 70%);
+    background: radial-gradient(ellipse at center, #fef9f0 0%, #f5ebe0 70%);
 }
 
 .start-container {
@@ -60,49 +61,49 @@ body {
 
 .game-title {
     font-size: 3rem;
-    background: linear-gradient(180deg, #ffd700 0%, #ffaa00 50%, #ff8800 100%);
+    background: linear-gradient(180deg, #e6b800 0%, #d4a017 50%, #b8860b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    text-shadow: 1px 1px 0 rgba(107, 68, 35, 0.15);
     margin-bottom: 15px;
     animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
 @keyframes titleGlow {
     from { filter: brightness(1); }
-    to { filter: brightness(1.3); }
+    to { filter: brightness(1.1); }
 }
 
 .subtitle {
     font-size: 1rem;
-    color: #a080d0;
+    color: #8b5a2b;
     margin-bottom: 40px;
 }
 
 .god-info {
-    background: rgba(30, 20, 60, 0.8);
-    border: 2px solid #6a4aaa;
+    background: #fff8e7;
+    border: 3px solid #6b4423;
     border-radius: 15px;
     padding: 25px;
     margin: 20px 0;
-    box-shadow: 0 0 20px rgba(106, 74, 170, 0.3);
+    box-shadow: 0 4px 12px rgba(107, 68, 35, 0.15);
 }
 
 .god-name-display { margin-bottom: 15px; }
 
 .god-name {
     font-size: 1.3rem;
-    color: #ffd700;
+    color: #d4a017;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    text-shadow: 1px 1px 0 rgba(107, 68, 35, 0.1);
     line-height: 1.4;
     word-break: keep-all;
 }
 
 .god-detail {
     font-size: 0.95rem;
-    color: #c0a0e0;
+    color: #6b4423;
     margin: 5px 0;
 }
 
@@ -113,16 +114,22 @@ body {
     padding: 12px 24px;
     font-size: 1rem;
     font-weight: bold;
-    border: none;
+    border: 2px solid #6b4423;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
     margin: 5px;
+    box-shadow: 0 3px 0 #6b4423, 0 4px 8px rgba(107, 68, 35, 0.15);
 }
 
 .btn:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 0 #6b4423, 0 6px 12px rgba(107, 68, 35, 0.2);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #6b4423, 0 3px 6px rgba(107, 68, 35, 0.15);
 }
 
 .btn:disabled, .btn.disabled {
@@ -131,62 +138,79 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(180deg, #7b4fbf 0%, #5a2d8e 100%);
-    color: white;
+    background: linear-gradient(180deg, #8bc34a 0%, #7cb342 100%);
+    color: #ffffff;
     font-size: 1.2rem;
     padding: 15px 35px;
-    box-shadow: 0 0 20px rgba(123, 79, 191, 0.4);
+    border-color: #5a8a2b;
+    box-shadow: 0 3px 0 #5a8a2b, 0 4px 8px rgba(107, 68, 35, 0.15);
 }
 
 .btn-gold {
-    background: linear-gradient(180deg, #ffd700 0%, #ff8800 100%);
-    color: #1a0a2e;
+    background: linear-gradient(180deg, #ffd966 0%, #e6b800 100%);
+    color: #4a2c17;
     font-size: 1.2rem;
     padding: 15px 35px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    border-color: #b8860b;
+    box-shadow: 0 3px 0 #b8860b, 0 4px 8px rgba(107, 68, 35, 0.15);
 }
 
 .btn-danger {
-    background: linear-gradient(180deg, #8b2252 0%, #5c1438 100%);
-    color: #ffaacc;
+    background: linear-gradient(180deg, #e57373 0%, #ef5350 100%);
+    color: #ffffff;
     font-size: 0.8rem;
     padding: 6px 12px;
+    border-color: #c62828;
+    box-shadow: 0 2px 0 #c62828;
 }
 
 .btn-share {
-    background: linear-gradient(180deg, #4a4aff 0%, #2a2aaa 100%);
-    color: white; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0;
+    background: linear-gradient(180deg, #81d4fa 0%, #4fc3f7 100%);
+    color: #ffffff; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0;
+    border-color: #0288d1;
+    box-shadow: 0 2px 0 #0288d1;
 }
 
 .btn-twitter {
-    background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
-    color: white; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0; border: 1px solid #333;
+    background: linear-gradient(180deg, #424242 0%, #212121 100%);
+    color: white; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0; border: 2px solid #424242;
+    box-shadow: 0 2px 0 #212121;
 }
 
 .btn-link {
-    background: linear-gradient(180deg, #2a7a4a 0%, #1a5a3a 100%);
-    color: white; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0;
+    background: linear-gradient(180deg, #a5d6a7 0%, #81c784 100%);
+    color: #ffffff; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0;
+    border-color: #43a047;
+    box-shadow: 0 2px 0 #43a047;
 }
 
 /* v5.0: 새 공유 버튼 스타일 */
 .btn-image {
-    background: linear-gradient(180deg, #6a4aaa 0%, #4a2a8a 100%);
+    background: linear-gradient(180deg, #ce93d8 0%, #ba68c8 100%);
     color: white; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0;
+    border-color: #8e24aa;
+    box-shadow: 0 2px 0 #8e24aa;
 }
 
 .btn-kakao {
-    background: linear-gradient(180deg, #fee500 0%, #ffd600 100%);
+    background: linear-gradient(180deg, #ffe066 0%, #ffd600 100%);
     color: #3c1e1e; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0; font-weight: bold;
+    border-color: #c9a300;
+    box-shadow: 0 2px 0 #c9a300;
 }
 
 .btn-instagram {
-    background: linear-gradient(180deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+    background: linear-gradient(180deg, #e6a3c4 0%, #d4859e 50%, #c46b8a 100%);
     color: white; font-size: 0.8rem; padding: 8px 12px; width: 100%; margin: 3px 0;
+    border-color: #a04060;
+    box-shadow: 0 2px 0 #a04060;
 }
 
 .btn-upgrade-small {
-    background: linear-gradient(180deg, #6a4aaa 0%, #4a2a8a 100%);
-    color: #e0d0ff; padding: 8px 16px; font-size: 0.85rem; border-radius: 8px;
+    background: linear-gradient(180deg, #ffd966 0%, #e6b800 100%);
+    color: #4a2c17; padding: 8px 16px; font-size: 0.85rem; border-radius: 8px;
+    border: 2px solid #b8860b;
+    box-shadow: 0 2px 0 #b8860b;
 }
 
 /* ============================================
@@ -198,32 +222,34 @@ body {
 .status-bar {
     display: flex; flex-wrap: wrap; gap: 8px;
     padding: 8px 12px;
-    background: rgba(10, 10, 30, 0.9);
-    border-bottom: 2px solid #3a2a5a;
+    background: #fff8e7;
+    border-bottom: 3px solid #6b4423;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 2px 6px rgba(107, 68, 35, 0.1);
 }
 
 .status-card {
-    background: rgba(30, 20, 50, 0.9);
-    border: 1px solid #4a3a6a;
+    background: #fef9f0;
+    border: 2px solid #8b5a2b;
     border-radius: 8px;
     padding: 6px 12px;
     min-width: 100px;
     text-align: center;
     display: flex; flex-direction: column; align-items: center;
+    box-shadow: 0 2px 4px rgba(107, 68, 35, 0.1);
 }
 
 .status-label {
-    font-size: 0.65rem; color: #8070a0; text-transform: uppercase; letter-spacing: 1px;
+    font-size: 0.65rem; color: #8b5a2b; text-transform: uppercase; letter-spacing: 1px;
 }
 
 .status-value {
-    font-size: 0.85rem; color: #ffd700; font-weight: bold; margin-top: 2px; word-break: keep-all;
+    font-size: 0.85rem; color: #d4a017; font-weight: bold; margin-top: 2px; word-break: keep-all;
 }
 
-.god-name-small { font-size: 0.7rem; color: #ffaa00; }
-.status-sub { font-size: 0.65rem; color: #90e090; margin-top: 2px; }
+.god-name-small { font-size: 0.7rem; color: #b8860b; }
+.status-sub { font-size: 0.65rem; color: #7cb342; margin-top: 2px; }
 
 /* v5.0: 새 게임 버튼 카드 (우상단) */
 .new-game-card {
@@ -231,25 +257,26 @@ body {
     border: none;
     padding: 0;
     min-width: auto;
+    box-shadow: none;
 }
 
 /* v5.0: 믿음 수치 확대 */
 .faith-card {
     min-width: 140px;
-    background: rgba(40, 30, 70, 0.95);
-    border: 1px solid #ffd700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    background: #fff8e7;
+    border: 2px solid #d4a017;
+    box-shadow: 0 2px 6px rgba(212, 160, 23, 0.2);
 }
 
 .faith-value {
     font-size: 1.3rem;
-    color: #ffd700;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    color: #d4a017;
+    text-shadow: 1px 1px 0 rgba(107, 68, 35, 0.1);
 }
 
 .faith-sub {
     font-size: 0.75rem;
-    color: #90e090;
+    color: #7cb342;
     font-weight: bold;
 }
 
@@ -262,19 +289,19 @@ body {
     justify-content: center;
     gap: 15px;
     padding: 8px;
-    background: rgba(15, 10, 30, 0.6);
-    border-bottom: 1px solid #3a2a5a;
+    background: #fef9f0;
+    border-bottom: 2px solid #8b5a2b;
 }
 
 .god-emoji {
     font-size: 2.5rem;
-    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    filter: drop-shadow(0 2px 4px rgba(107, 68, 35, 0.2));
     animation: godPulse 3s ease-in-out infinite;
 }
 
 @keyframes godPulse {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
-    50% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)); }
+    0%, 100% { filter: drop-shadow(0 2px 4px rgba(107, 68, 35, 0.2)); }
+    50% { filter: drop-shadow(0 2px 8px rgba(212, 160, 23, 0.3)); }
 }
 
 .god-info-text {
@@ -284,13 +311,13 @@ body {
 
 .god-display-name {
     font-size: 0.9rem;
-    color: #ffd700;
+    color: #d4a017;
     font-weight: bold;
 }
 
 .god-evolution-text {
     font-size: 0.75rem;
-    color: #a080d0;
+    color: #8b5a2b;
 }
 
 /* ============================================
@@ -298,7 +325,7 @@ body {
    ============================================ */
 .stage-progress-container {
     padding: 6px 20px;
-    background: rgba(10, 10, 30, 0.8);
+    background: #fff8e7;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -307,22 +334,23 @@ body {
 .stage-progress-bg {
     flex: 1;
     height: 8px;
-    background: rgba(40, 30, 60, 0.8);
+    background: #f0e6d2;
+    border: 1px solid #8b5a2b;
     border-radius: 4px;
     overflow: hidden;
 }
 
 .stage-progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #ffd700, #ff8800);
+    background: linear-gradient(90deg, #ffd966, #e6b800);
     border-radius: 4px;
     transition: width 0.5s ease;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 4px rgba(212, 160, 23, 0.3);
 }
 
 .stage-progress-text {
     font-size: 0.7rem;
-    color: #a080d0;
+    color: #8b5a2b;
     white-space: nowrap;
 }
 
@@ -331,8 +359,8 @@ body {
    ============================================ */
 .tab-menu {
     display: flex;
-    background: rgba(10, 10, 30, 0.9);
-    border-bottom: 2px solid #3a2a5a;
+    background: #fff8e7;
+    border-bottom: 3px solid #6b4423;
     padding: 0 10px;
 }
 
@@ -342,7 +370,7 @@ body {
     padding: 10px 20px;
     background: transparent;
     border: none;
-    color: #8070a0;
+    color: #8b5a2b;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
@@ -351,12 +379,14 @@ body {
 }
 
 .tab-btn:hover {
-    color: #c0a0e0;
+    color: #6b4423;
+    background: rgba(212, 160, 23, 0.08);
 }
 
 .tab-btn.active {
-    color: #ffd700;
-    border-bottom-color: #ffd700;
+    color: #d4a017;
+    border-bottom-color: #d4a017;
+    background: rgba(212, 160, 23, 0.05);
 }
 
 /* ============================================
@@ -372,19 +402,19 @@ body {
 .side-panel {
     width: 220px;
     padding: 12px;
-    background: rgba(15, 10, 30, 0.9);
+    background: #fef9f0;
     overflow-y: auto;
     flex-shrink: 0;
 }
 
-.right-panel { border-left: 1px solid #3a2a5a; }
+.right-panel { border-left: 2px solid #8b5a2b; }
 
 .panel-title {
     font-size: 0.85rem;
-    color: #a080d0;
+    color: #6b4423;
     margin-bottom: 8px;
     text-align: center;
-    border-bottom: 1px solid #4a3a6a;
+    border-bottom: 2px solid #d4a017;
     padding-bottom: 6px;
 }
 
@@ -392,12 +422,12 @@ body {
    v5.0: 신의 초상화 (이벤트 로그 대체)
    ============================================ */
 .god-portrait-frame {
-    background: linear-gradient(135deg, rgba(40, 25, 80, 0.9), rgba(20, 10, 40, 0.9));
-    border: 3px solid #6a4aaa;
+    background: linear-gradient(135deg, #fff8e7, #f5ebe0);
+    border: 3px solid #6b4423;
     border-radius: 15px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(106, 74, 170, 0.3), inset 0 0 15px rgba(106, 74, 170, 0.1);
+    box-shadow: 0 4px 12px rgba(107, 68, 35, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.5);
     position: relative;
 }
 
@@ -405,7 +435,7 @@ body {
     content: "";
     position: absolute;
     top: -2px; left: -2px; right: -2px; bottom: -2px;
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    border: 1px solid rgba(212, 160, 23, 0.3);
     border-radius: 15px;
     pointer-events: none;
 }
@@ -419,14 +449,14 @@ body {
 
 .god-portrait-emoji {
     font-size: 4rem;
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    filter: drop-shadow(0 2px 6px rgba(107, 68, 35, 0.2));
     animation: godPulse 3s ease-in-out infinite;
     line-height: 1.2;
 }
 
 .god-portrait-name {
     font-size: 0.85rem;
-    color: #ffd700;
+    color: #d4a017;
     font-weight: bold;
     word-break: keep-all;
     line-height: 1.3;
@@ -434,16 +464,16 @@ body {
 
 .god-portrait-rank {
     font-size: 0.75rem;
-    color: #c0a0e0;
+    color: #6b4423;
     padding: 3px 10px;
-    background: rgba(60, 40, 90, 0.5);
+    background: #fff8e7;
     border-radius: 10px;
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    border: 1px solid #d4a017;
 }
 
 .god-portrait-stage {
     font-size: 0.7rem;
-    color: #a080d0;
+    color: #8b5a2b;
 }
 
 /* ============================================
@@ -452,13 +482,13 @@ body {
 .info-header {
     padding: 15px 20px;
     text-align: center;
-    background: rgba(20, 15, 40, 0.8);
-    border-bottom: 1px solid #4a3a6a;
+    background: #fef9f0;
+    border-bottom: 2px solid #8b5a2b;
 }
 
 .info-title {
     font-size: 1.3rem;
-    color: #ffd700;
+    color: #d4a017;
 }
 
 .info-content {
@@ -473,43 +503,45 @@ body {
 
 /* ------ 공유 카드 ------ */
 .share-card {
-    background: rgba(30, 20, 60, 0.8);
-    border: 1px solid #6a4aaa;
+    background: #fff8e7;
+    border: 2px solid #8b5a2b;
     border-radius: 10px;
     padding: 12px;
     margin-bottom: 0;
     width: 100%;
     max-width: 350px;
+    box-shadow: 0 3px 8px rgba(107, 68, 35, 0.12);
 }
 
 .share-card-content { text-align: center; }
-.share-card-label { font-size: 0.75rem; color: #8070a0; margin-bottom: 4px; }
+.share-card-label { font-size: 0.75rem; color: #8b5a2b; margin-bottom: 4px; }
 
 .share-card-god-name {
-    font-size: 0.9rem; color: #ffd700; font-weight: bold;
+    font-size: 0.9rem; color: #d4a017; font-weight: bold;
     margin-bottom: 8px; min-height: 35px; line-height: 1.3; word-break: keep-all;
 }
 
 .share-card-stats {
-    text-align: left; font-size: 0.75rem; color: #c0b0d0; margin-bottom: 8px;
+    text-align: left; font-size: 0.75rem; color: #6b4423; margin-bottom: 8px;
 }
 
 .share-card-stats p { margin: 2px 0; }
-.share-card-hashtag { font-size: 0.65rem; color: #7b4fbf; font-style: italic; }
+.share-card-hashtag { font-size: 0.65rem; color: #7cb342; font-style: italic; }
 
 /* ------ 게임 정보 섹션 ------ */
 .game-info-section {
-    background: rgba(30, 20, 60, 0.8);
-    border: 1px solid #4a3a6a;
+    background: #fff8e7;
+    border: 2px solid #8b5a2b;
     border-radius: 10px;
     padding: 12px;
     width: 100%;
     max-width: 350px;
+    box-shadow: 0 3px 8px rgba(107, 68, 35, 0.12);
 }
 
 .game-info-content {
     font-size: 0.8rem;
-    color: #c0b0d0;
+    color: #6b4423;
     line-height: 1.8;
 }
 
@@ -519,12 +551,13 @@ body {
 
 /* ------ 공유 섹션 ------ */
 .share-section {
-    background: rgba(30, 20, 60, 0.8);
-    border: 1px solid #4a3a6a;
+    background: #fff8e7;
+    border: 2px solid #8b5a2b;
     border-radius: 10px;
     padding: 12px;
     width: 100%;
     max-width: 350px;
+    box-shadow: 0 3px 8px rgba(107, 68, 35, 0.12);
 }
 
 .share-buttons { margin-top: 8px; }
@@ -551,7 +584,7 @@ body {
 .play-area {
     flex: 1;
     position: relative;
-    background: linear-gradient(180deg, #0d0d20 0%, #15102a 50%, #0d0d20 100%);
+    background: linear-gradient(180deg, #e8f5e9 0%, #f1f8e9 40%, #fffde7 70%, #e3f2fd 100%) !important;
     overflow: hidden;
     cursor: crosshair;
     min-height: 300px;
@@ -586,6 +619,7 @@ body {
     cursor: pointer;
     user-select: none;
     z-index: 10;
+    filter: drop-shadow(0 1px 2px rgba(107, 68, 35, 0.25));
 }
 
 .person:hover {
@@ -599,27 +633,37 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 26px;
-    height: 3px;
-    background: rgba(0, 0, 0, 0.6);
+    height: 4px;
+    background: rgba(74, 44, 23, 0.85);
+    border: 1px solid #4a2c17;
     border-radius: 2px;
     overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .hp-bar {
     height: 100%;
     border-radius: 2px;
     transition: width 0.2s ease;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
 .grade-tag {
     position: absolute;
-    top: -8px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     font-weight: bold;
     white-space: nowrap;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    padding: 1px 5px;
+    background: rgba(255, 248, 231, 0.92);
+    border: 1px solid #6b4423;
+    border-radius: 4px;
+    color: #4a2c17;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 1px 3px rgba(107, 68, 35, 0.25);
+    z-index: 11;
 }
 
 .person.hit {
@@ -648,8 +692,8 @@ body {
 .click-effect {
     position: absolute;
     border-radius: 50%;
-    border: 2px solid rgba(255, 215, 0, 0.8);
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+    border: 2px solid rgba(212, 160, 23, 0.8);
+    background: radial-gradient(circle, rgba(255, 217, 102, 0.3) 0%, transparent 70%);
     animation: rippleExpand 0.6s ease-out forwards;
     pointer-events: none;
     z-index: 100;
@@ -663,10 +707,10 @@ body {
 
 .damage-text {
     position: absolute;
-    color: #ffffff;
+    color: #4a2c17;
     font-size: 14px;
     font-weight: bold;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 3px rgba(255, 100, 100, 0.8);
+    text-shadow: 1px 1px 0 #fff8e7, -1px 1px 0 #fff8e7, 1px -1px 0 #fff8e7, -1px -1px 0 #fff8e7, 0 2px 3px rgba(107, 68, 35, 0.4);
     animation: damageFloat 0.8s ease-out forwards;
     pointer-events: none;
     z-index: 101;
@@ -674,14 +718,15 @@ body {
 }
 
 .damage-text.crit {
-    color: #ff4444;
+    color: #e65100;
     font-size: 20px;
-    text-shadow: 0 0 8px rgba(255, 0, 0, 0.9), 0 0 3px rgba(255, 215, 0, 0.8);
+    text-shadow: 1px 1px 0 #fff8e7, -1px 1px 0 #fff8e7, 1px -1px 0 #fff8e7, -1px -1px 0 #fff8e7, 0 2px 4px rgba(212, 160, 23, 0.5);
 }
 
 .damage-text.chain {
-    color: #4a9eff;
+    color: #0277bd;
     font-size: 12px;
+    text-shadow: 1px 1px 0 #fff8e7, -1px 1px 0 #fff8e7, 1px -1px 0 #fff8e7, -1px -1px 0 #fff8e7, 0 1px 2px rgba(107, 68, 35, 0.3);
 }
 
 @keyframes damageFloat {
@@ -762,19 +807,19 @@ body {
 .temple-header {
     padding: 15px 20px;
     text-align: center;
-    background: rgba(20, 15, 40, 0.8);
-    border-bottom: 1px solid #4a3a6a;
+    background: #fef9f0;
+    border-bottom: 2px solid #8b5a2b;
 }
 
 .temple-title {
     font-size: 1.3rem;
-    color: #ffd700;
+    color: #d4a017;
     margin-bottom: 5px;
 }
 
 .temple-desc {
     font-size: 0.8rem;
-    color: #a080d0;
+    color: #8b5a2b;
 }
 
 .upgrade-tree-container {
@@ -801,7 +846,7 @@ body {
     font-weight: bold;
     text-align: center;
     width: 100px;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     z-index: 5;
 }
 
@@ -809,8 +854,8 @@ body {
     position: absolute;
     width: 90px;
     height: 90px;
-    background: rgba(30, 20, 60, 0.9);
-    border: 2px solid #4a3a6a;
+    background: #fff8e7;
+    border: 2px solid #8b5a2b;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -820,25 +865,26 @@ body {
     transition: all 0.2s ease;
     z-index: 10;
     text-align: center;
+    box-shadow: 0 3px 6px rgba(107, 68, 35, 0.15);
 }
 
 .skill-node:hover {
-    border-color: #ffd700;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    border-color: #d4a017;
+    box-shadow: 0 4px 10px rgba(212, 160, 23, 0.3);
     transform: scale(1.1);
     z-index: 20;
 }
 
 .skill-node.learned {
-    border-color: #ffd700;
-    background: rgba(60, 40, 20, 0.9);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    border-color: #d4a017;
+    background: linear-gradient(135deg, #fff8e7, #ffe9b8);
+    box-shadow: 0 3px 8px rgba(212, 160, 23, 0.25);
 }
 
 .skill-node.maxed {
-    border-color: #ff4444;
-    background: rgba(60, 20, 20, 0.9);
-    box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+    border-color: #e53935;
+    background: linear-gradient(135deg, #fff8e7, #ffcdd2);
+    box-shadow: 0 3px 8px rgba(229, 57, 53, 0.25);
 }
 
 .skill-node.locked {
@@ -847,14 +893,14 @@ body {
 }
 
 .skill-node.available {
-    border-color: #90e090;
-    box-shadow: 0 0 12px rgba(144, 224, 144, 0.4);
+    border-color: #7cb342;
+    box-shadow: 0 3px 8px rgba(124, 179, 66, 0.3);
     animation: availablePulse 2s ease-in-out infinite;
 }
 
 @keyframes availablePulse {
-    0%, 100% { box-shadow: 0 0 12px rgba(144, 224, 144, 0.4); }
-    50% { box-shadow: 0 0 20px rgba(144, 224, 144, 0.7); }
+    0%, 100% { box-shadow: 0 3px 8px rgba(124, 179, 66, 0.3); }
+    50% { box-shadow: 0 3px 12px rgba(124, 179, 66, 0.5); }
 }
 
 .skill-node-icon {
@@ -864,7 +910,7 @@ body {
 
 .skill-node-name {
     font-size: 0.6rem;
-    color: #e0d0ff;
+    color: #4a2c17;
     margin-top: 2px;
     line-height: 1.1;
     word-break: keep-all;
@@ -873,7 +919,7 @@ body {
 
 .skill-node-progress {
     font-size: 0.5rem;
-    color: #ffd700;
+    color: #d4a017;
     margin-top: 1px;
     letter-spacing: -1px;
     line-height: 1;
@@ -881,7 +927,7 @@ body {
 
 .skill-node-level {
     font-size: 0.55rem;
-    color: #ffd700;
+    color: #d4a017;
     margin-top: 1px;
     font-weight: bold;
 }
@@ -893,16 +939,16 @@ body {
 }
 
 .skill-node-cost.can-buy {
-    color: #90e090;
+    color: #7cb342;
 }
 
 .skill-node-cost.cant-buy {
-    color: #e09090;
+    color: #e57373;
 }
 
 .skill-node-maxed {
     font-size: 0.55rem;
-    color: #ff4444;
+    color: #e53935;
     font-weight: bold;
     margin-top: 1px;
 }
@@ -917,18 +963,18 @@ body {
     bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(10, 5, 25, 0.95);
-    border: 1px solid #6a4aaa;
+    background: #fff8e7;
+    border: 2px solid #6b4423;
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 0.7rem;
-    color: #e0d0ff;
+    color: #4a2c17;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
     z-index: 100;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(107, 68, 35, 0.2);
 }
 
 .skill-node:hover .skill-tooltip {
@@ -941,7 +987,7 @@ body {
 .evolution-modal {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(107, 68, 35, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -950,12 +996,12 @@ body {
 }
 
 .evolution-modal-content {
-    background: linear-gradient(135deg, rgba(40, 20, 80, 0.95), rgba(20, 10, 40, 0.95));
-    border: 3px solid #ffd700;
+    background: linear-gradient(135deg, #fff8e7, #f5ebe0);
+    border: 3px solid #d4a017;
     border-radius: 20px;
     padding: 40px 50px;
     text-align: center;
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 8px 30px rgba(107, 68, 35, 0.3);
     position: relative;
     max-width: 90%;
     animation: evolutionPop 0.5s ease;
@@ -991,7 +1037,7 @@ body {
     font-size: 5rem;
     margin-bottom: 15px;
     animation: emojiBounce 0.6s ease;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    filter: drop-shadow(0 2px 8px rgba(212, 160, 23, 0.3));
 }
 
 @keyframes emojiBounce {
@@ -1002,21 +1048,21 @@ body {
 
 .evolution-title {
     font-size: 1.5rem;
-    color: #ffd700;
+    color: #d4a017;
     margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    text-shadow: 1px 1px 0 rgba(107, 68, 35, 0.1);
 }
 
 .evolution-old-name {
     font-size: 1rem;
-    color: #a080d0;
+    color: #8b5a2b;
     text-decoration: line-through;
     opacity: 0.7;
 }
 
 .evolution-arrow {
     font-size: 1.5rem;
-    color: #ffd700;
+    color: #d4a017;
     margin: 10px 0;
     animation: arrowBounce 1s ease infinite;
 }
@@ -1028,16 +1074,16 @@ body {
 
 .evolution-new-name {
     font-size: 1.3rem;
-    color: #ffd700;
+    color: #d4a017;
     font-weight: bold;
     margin-bottom: 25px;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    text-shadow: 1px 1px 0 rgba(107, 68, 35, 0.1);
     animation: newNameGlow 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes newNameGlow {
-    from { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
-    to { text-shadow: 0 0 20px rgba(255, 215, 0, 0.9); }
+    from { text-shadow: 1px 1px 0 rgba(107, 68, 35, 0.1); }
+    to { text-shadow: 1px 1px 0 rgba(107, 68, 35, 0.1), 0 0 8px rgba(212, 160, 23, 0.3); }
 }
 
 /* ============================================
@@ -1046,7 +1092,7 @@ body {
 #ending-screen {
     justify-content: center;
     align-items: center;
-    background: radial-gradient(ellipse at center, #2a1a5e 0%, #0a0a1a 70%);
+    background: radial-gradient(ellipse at center, #fef9f0 0%, #f5ebe0 70%);
 }
 
 .ending-container {
@@ -1057,29 +1103,30 @@ body {
 
 .ending-title {
     font-size: 2.5rem;
-    color: #ffd700;
+    color: #d4a017;
     margin-bottom: 15px;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    text-shadow: 1px 1px 0 rgba(107, 68, 35, 0.15);
     animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
 .ending-subtitle {
     font-size: 1.1rem;
-    color: #c0a0e0;
+    color: #8b5a2b;
     margin-bottom: 30px;
 }
 
 .ending-stats {
-    background: rgba(30, 20, 60, 0.8);
-    border: 2px solid #6a4aaa;
+    background: #fff8e7;
+    border: 3px solid #6b4423;
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(107, 68, 35, 0.15);
 }
 
 .ending-stats p {
     font-size: 1rem;
-    color: #e0d0ff;
+    color: #4a2c17;
     margin: 8px 0;
 }
 
@@ -1098,16 +1145,16 @@ body {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(40, 20, 80, 0.95);
-    border: 2px solid #ffd700;
+    background: #fff8e7;
+    border: 2px solid #d4a017;
     border-radius: 10px;
     padding: 12px 25px;
-    color: #ffd700;
+    color: #6b4423;
     font-size: 0.9rem;
     font-weight: bold;
     z-index: 9999;
     animation: toastSlide 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(107, 68, 35, 0.2);
 }
 
 @keyframes toastSlide {
@@ -1130,7 +1177,7 @@ body {
         width: 100%;
         max-height: 200px;
         border: none;
-        border-bottom: 1px solid #3a2a5a;
+        border-bottom: 2px solid #8b5a2b;
     }
 
     .play-area { min-height: 250px; }
@@ -1168,4 +1215,52 @@ body {
     .evolution-new-name { font-size: 1.1rem; }
     
     .new-game-card .btn { font-size: 0.7rem; padding: 4px 8px; }
+}
+
+/* ============================================
+   PNG 에셋 표시 스타일
+   ============================================ */
+.person-sprite {
+    display: block;
+    width: 28px;
+    height: 36px;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+.god-image {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+.portrait-image {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+.evolution-image {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+.skill-node-icon-img {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
 }

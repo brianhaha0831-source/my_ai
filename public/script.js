@@ -16,11 +16,11 @@ const AREA_CANDIDATES = AREA_HIERARCHY.map(h => h[0]);
 const TARGET_CANDIDATES = ["고등학생","중학생","취준생","직장인","자영업자","대학생","소개팅 초보자","야식 참는 사람","운전면허 응시자","발표 공포증 보유자"];
 const POWER_CANDIDATES = ["기말고사 수학 80점 이상 획득 담당","수행평가 발표 안 떨림 담당","최종면접 합격 담당","소개팅 첫 만남 어색함 방지 담당","야식 참기 성공 담당","운전면허 기능시험 합격 담당","배달앱 리뷰 4.8점 유지 담당","고백 성공 담당","다이어트 3일차 포기 방지 담당","복권 5등 당첨 담당"];
 const PERSON_GRADES = [
-    {name:"일반",hp:5,reward:5,autoFaith:0.05,spawnWeight:100,color:"#c0c0c0",emoji:"🧑"},
-    {name:"희귀",hp:20,reward:30,autoFaith:0.3,spawnWeight:30,color:"#4a9eff",emoji:"👨‍🎓"},
-    {name:"영웅",hp:80,reward:150,autoFaith:1.5,spawnWeight:8,color:"#aa44ff",emoji:"👨‍🏫"},
-    {name:"전설",hp:300,reward:800,autoFaith:8,spawnWeight:2,color:"#ffaa00",emoji:"👨‍💼"},
-    {name:"신화",hp:1000,reward:5000,autoFaith:50,spawnWeight:0.3,color:"#ff4444",emoji:"👤"}
+    {name:"일반",hp:5,reward:5,autoFaith:0.05,spawnWeight:100,color:"#c0c0c0",emoji:"🧑",sprite:"/asset/npc/student.png"},
+    {name:"희귀",hp:20,reward:30,autoFaith:0.3,spawnWeight:30,color:"#4a9eff",emoji:"👨‍🎓",sprite:"/asset/npc/office_male.png"},
+    {name:"영웅",hp:80,reward:150,autoFaith:1.5,spawnWeight:8,color:"#aa44ff",emoji:"👨‍🏫",sprite:"/asset/npc/office_female.png"},
+    {name:"전설",hp:300,reward:800,autoFaith:8,spawnWeight:2,color:"#ffaa00",emoji:"👨‍💼",sprite:"/asset/npc/delivery.png"},
+    {name:"신화",hp:1000,reward:5000,autoFaith:50,spawnWeight:0.3,color:"#ff4444",emoji:"👤",sprite:"/asset/npc/grandma.png"}
 ];
 const PERSON_JOBS = {0:["시민","학생","행인","주부","배달원","알바생","어린이","노인"],1:["대학생","직장인","공무원","간호사","개발자","디자이너"],2:["교수","의사","변호사","사업가","작가","예술가"],3:["유명인","CEO","정치인","스타","발명가"],4:["성인","현자","예언자","구도자"]};
 const STAGE_CONFIG = [
@@ -44,28 +44,32 @@ const STAGE_BACKGROUNDS = [
     "radial-gradient(ellipse at center,#3a1a5e 0%,#0a0a1a 70%)"
 ];
 const GOD_EVOLUTIONS = [
-    {name:"빛의 구체",emoji:"✨",stageReq:0},{name:"작은 석상",emoji:"🗿",stageReq:1},
-    {name:"천사",emoji:"👼",stageReq:2},{name:"후광을 가진 신",emoji:"🔆",stageReq:3},
-    {name:"거대한 신",emoji:"🌟",stageReq:4},{name:"우주를 감싼 존재",emoji:"🌌",stageReq:5},
-    {name:"형태가 없는 빛",emoji:"⚪",stageReq:6},{name:"유일신",emoji:"♾️",stageReq:7}
+    {name:"빛의 구체",emoji:"✨",image:"/asset/god/god_stage0_light_orb.png",stageReq:0},
+    {name:"작은 석상",emoji:"🗿",image:"/asset/god/god_stage1_small_statue.png",stageReq:1},
+    {name:"천사",emoji:"👼",image:"/asset/god/god_stage2_angel.png",stageReq:2},
+    {name:"후광을 가진 신",emoji:"🔆",image:"/asset/god/god_stage3_halo_god.png",stageReq:3},
+    {name:"거대한 신",emoji:"🌟",image:"/asset/god/god_stage4_great_god.png",stageReq:4},
+    {name:"우주를 감싼 존재",emoji:"🌌",image:"/asset/god/god_stage5_cosmic_being.png",stageReq:5},
+    {name:"형태가 없는 빛",emoji:"⚪",image:"/asset/god/god_stage6_formless_light.png",stageReq:6},
+    {name:"유일신",emoji:"♾️",image:"/asset/god/god_stage7_one_true_god.png",stageReq:7}
 ];
 const SKILL_TREE = [
-    {id:"atk_power",name:"기적 공격력",desc:"공격당 데미지 증가",icon:"⚔️",x:150,y:80,parent:null,branch:"stat",maxLevel:20,costBase:50,costGrowth:1.5,type:"attack",value:2},
-    {id:"atk_speed",name:"공격 속도",desc:"초당 공격 횟수 증가",icon:"💨",x:150,y:210,parent:"atk_power",branch:"stat",maxLevel:10,costBase:300,costGrowth:1.8,type:"attackSpeed",value:1},
-    {id:"area_radius",name:"신의 손길",desc:"공격 범위 증가",icon:"🙌",x:150,y:340,parent:"atk_speed",branch:"stat",maxLevel:10,costBase:100,costGrowth:1.5,type:"radius",value:5},
-    {id:"atk_crit",name:"기적 치명타",desc:"일정 확률로 5배 피해",icon:"💥",x:150,y:470,parent:"area_radius",branch:"stat",maxLevel:5,costBase:800,costGrowth:2,type:"crit",value:0.1},
-    {id:"atk_critdmg",name:"치명타 피해",desc:"치명타 배율 증가",icon:"💢",x:150,y:600,parent:"atk_crit",branch:"stat",maxLevel:5,costBase:3000,costGrowth:2.5,type:"critDmg",value:2},
-    {id:"area_explode",name:"기적 폭발",desc:"포섭 성공 시 주변 피해",icon:"🎆",x:300,y:80,parent:null,branch:"special",maxLevel:5,costBase:1000,costGrowth:2,type:"explode",value:0.5},
-    {id:"atk_smite",name:"천벌",desc:"광역 피해",icon:"⚡",x:300,y:210,parent:"area_explode",branch:"special",maxLevel:3,costBase:3000,costGrowth:2.5,type:"smite",value:0.05},
-    {id:"atk_chain",name:"연쇄 축복",desc:"주변 전파",icon:"🔗",x:300,y:340,parent:"atk_smite",branch:"special",maxLevel:5,costBase:2000,costGrowth:2,type:"chain",value:0.3},
-    {id:"auto_prophecy",name:"예언",desc:"무작위 피해",icon:"🔮",x:300,y:470,parent:"atk_chain",branch:"special",maxLevel:5,costBase:2000,costGrowth:2,type:"prophecy",value:10},
-    {id:"atk_reveal",name:"계시",desc:"즉시 포섭",icon:"👁️",x:300,y:600,parent:"auto_prophecy",branch:"special",maxLevel:3,costBase:5000,costGrowth:3,type:"reveal",value:0.02},
-    {id:"sp_spawn",name:"소명",desc:"스폰 속도 증가",icon:"📢",x:450,y:80,parent:null,branch:"resource",maxLevel:10,costBase:200,costGrowth:1.5,type:"spawnSpeed",value:0.1},
-    {id:"sp_rare",name:"인연",desc:"희귀 등장률 증가",icon:"🍀",x:600,y:80,parent:"sp_spawn",branch:"resource",maxLevel:10,costBase:500,costGrowth:1.8,type:"rareBonus",value:0.1},
-    {id:"auto_faith",name:"축복",desc:"자동 믿음 증가",icon:"🙏",x:450,y:210,parent:"sp_spawn",branch:"resource",maxLevel:20,costBase:80,costGrowth:1.5,type:"autoMult",value:0.2},
-    {id:"auto_pray",name:"기도 강화",desc:"자동 믿음 배율 증가",icon:"📿",x:450,y:340,parent:"auto_faith",branch:"resource",maxLevel:10,costBase:2000,costGrowth:2,type:"autoMult",value:0.5},
-    {id:"auto_zealot",name:"광신도",desc:"자동 믿음 대폭 증가",icon:"🔥",x:450,y:470,parent:"auto_pray",branch:"resource",maxLevel:5,costBase:10000,costGrowth:2.5,type:"autoMult",value:1.0},
-    {id:"auto_priest",name:"성직자",desc:"자동 믿음 2배",icon:"⛪",x:450,y:600,parent:"auto_zealot",branch:"resource",maxLevel:3,costBase:50000,costGrowth:3,type:"autoMult",value:2.0}
+    {id:"atk_power",name:"기적 공격력",desc:"공격당 데미지 증가",icon:"⚔️",iconImage:"/asset/icons/upgrades/attack_power_sword.png",x:150,y:80,parent:null,branch:"stat",maxLevel:20,costBase:50,costGrowth:1.5,type:"attack",value:2},
+    {id:"atk_speed",name:"공격 속도",desc:"초당 공격 횟수 증가",icon:"💨",iconImage:"/asset/icons/upgrades/attack_speed_wind.png",x:150,y:210,parent:"atk_power",branch:"stat",maxLevel:10,costBase:300,costGrowth:1.8,type:"attackSpeed",value:1},
+    {id:"area_radius",name:"신의 손길",desc:"공격 범위 증가",icon:"🙌",iconImage:"/asset/icons/upgrades/radius_blessing_hand.png",x:150,y:340,parent:"atk_speed",branch:"stat",maxLevel:10,costBase:100,costGrowth:1.5,type:"radius",value:5},
+    {id:"atk_crit",name:"기적 치명타",desc:"일정 확률로 5배 피해",icon:"💥",iconImage:"/asset/icons/upgrades/critical_hit.png",x:150,y:470,parent:"area_radius",branch:"stat",maxLevel:5,costBase:800,costGrowth:2,type:"crit",value:0.1},
+    {id:"atk_critdmg",name:"치명타 피해",desc:"치명타 배율 증가",icon:"💢",iconImage:"/asset/icons/upgrades/critical_damage.png",x:150,y:600,parent:"atk_crit",branch:"stat",maxLevel:5,costBase:3000,costGrowth:2.5,type:"critDmg",value:2},
+    {id:"area_explode",name:"기적 폭발",desc:"포섭 성공 시 주변 피해",icon:"🎆",iconImage:"/asset/icons/upgrades/holy_explosion.png",x:300,y:80,parent:null,branch:"special",maxLevel:5,costBase:1000,costGrowth:2,type:"explode",value:0.5},
+    {id:"atk_smite",name:"천벌",desc:"광역 피해",icon:"⚡",iconImage:"/asset/icons/upgrades/smite_lightning.png",x:300,y:210,parent:"area_explode",branch:"special",maxLevel:3,costBase:3000,costGrowth:2.5,type:"smite",value:0.05},
+    {id:"atk_chain",name:"연쇄 축복",desc:"주변 전파",icon:"🔗",iconImage:"/asset/icons/upgrades/chain_blessing.png",x:300,y:340,parent:"atk_smite",branch:"special",maxLevel:5,costBase:2000,costGrowth:2,type:"chain",value:0.3},
+    {id:"auto_prophecy",name:"예언",desc:"무작위 피해",icon:"🔮",iconImage:"/asset/icons/upgrades/prophecy_orb.png",x:300,y:470,parent:"atk_chain",branch:"special",maxLevel:5,costBase:2000,costGrowth:2,type:"prophecy",value:10},
+    {id:"atk_reveal",name:"계시",desc:"즉시 포섭",icon:"👁️",iconImage:"/asset/icons/upgrades/revelation_eye.png",x:300,y:600,parent:"auto_prophecy",branch:"special",maxLevel:3,costBase:5000,costGrowth:3,type:"reveal",value:0.02},
+    {id:"sp_spawn",name:"소명",desc:"스폰 속도 증가",icon:"📢",iconImage:"/asset/icons/upgrades/spawn_speed_bell.png",x:450,y:80,parent:null,branch:"resource",maxLevel:10,costBase:200,costGrowth:1.5,type:"spawnSpeed",value:0.1},
+    {id:"sp_rare",name:"인연",desc:"희귀 등장률 증가",icon:"🍀",iconImage:"/asset/icons/upgrades/rare_bonus_clover.png",x:600,y:80,parent:"sp_spawn",branch:"resource",maxLevel:10,costBase:500,costGrowth:1.8,type:"rareBonus",value:0.1},
+    {id:"auto_faith",name:"축복",desc:"자동 믿음 증가",icon:"🙏",iconImage:"/asset/icons/upgrades/auto_faith_prayer.png",x:450,y:210,parent:"sp_spawn",branch:"resource",maxLevel:20,costBase:80,costGrowth:1.5,type:"autoMult",value:0.2},
+    {id:"auto_pray",name:"기도 강화",desc:"자동 믿음 배율 증가",icon:"📿",iconImage:"/asset/icons/upgrades/prayer_upgrade_rosary.png",x:450,y:340,parent:"auto_faith",branch:"resource",maxLevel:10,costBase:2000,costGrowth:2,type:"autoMult",value:0.5},
+    {id:"auto_zealot",name:"광신도",desc:"자동 믿음 대폭 증가",icon:"🔥",iconImage:"/asset/icons/upgrades/zealot_holy_flame.png",x:450,y:470,parent:"auto_pray",branch:"resource",maxLevel:5,costBase:10000,costGrowth:2.5,type:"autoMult",value:1.0},
+    {id:"auto_priest",name:"성직자",desc:"자동 믿음 2배",icon:"⛪",iconImage:"/asset/icons/upgrades/priest_chapel.png",x:450,y:600,parent:"auto_zealot",branch:"resource",maxLevel:3,costBase:50000,costGrowth:3,type:"autoMult",value:2.0}
 ];
 const SKILL_BRANCHES = [{id:"stat",name:"능력치",icon:"⚔️",color:"#ff8844",x:150},{id:"special",name:"특수 능력",icon:"✨",color:"#aa44ff",x:300},{id:"resource",name:"자원",icon:"💰",color:"#44ff88",x:450}];
 const RANK_NAMES = ["하급 동네신","동네신","지역신","국가신","대륙신","인류신","우주신","유일신"];
@@ -150,7 +154,17 @@ function addPersonToDOM(person) {
     el.dataset.personId = person.id;
     el.style.left = person.x + "px"; el.style.top = person.y + "px";
     el.style.borderColor = person.color; el.style.boxShadow = `0 0 8px ${person.color}66`;
-    el.textContent = person.emoji;
+    const gradeData = PERSON_GRADES[person.grade];
+    if (gradeData && gradeData.sprite) {
+        const img = document.createElement("img");
+        img.className = "person-sprite";
+        img.src = gradeData.sprite;
+        img.alt = person.emoji;
+        img.draggable = false;
+        el.appendChild(img);
+    } else {
+        el.textContent = person.emoji;
+    }
     const hpBarBg = document.createElement("div"); hpBarBg.className = "hp-bar-bg";
     const hpBar = document.createElement("div"); hpBar.className = "hp-bar";
     hpBar.style.width = "100%"; hpBar.style.backgroundColor = person.color;
@@ -313,7 +327,27 @@ function checkStageProgress() {
 function updateGodEvolution() { for (let i = GOD_EVOLUTIONS.length-1; i >= 0; i--) { if (gameState.stageIndex >= GOD_EVOLUTIONS[i].stageReq) { gameState.godEvolution = i; break; } } }
 function applyStageBackground() { const pa = document.getElementById("play-area"); if (pa) pa.style.background = STAGE_BACKGROUNDS[Math.min(gameState.stageIndex, STAGE_BACKGROUNDS.length-1)]; }
 function restartSpawnTimer() { if (spawnIntervalId) clearInterval(spawnIntervalId); const config = getStageConfig(gameState.stageIndex); let interval = config.spawnInterval; const lv = gameState.upgrades["sp_spawn"]||0; if (lv > 0) interval = Math.max(300, interval / (1 + SKILL_TREE.find(u=>u.id==="sp_spawn").value * lv)); spawnIntervalId = setInterval(() => adjustPeopleCount(), interval); }
-function updateGodVisual() { const e = GOD_EVOLUTIONS[gameState.godEvolution]; const ge = document.getElementById("god-emoji"); const gn = document.getElementById("god-evolution-name"); if (ge) ge.textContent = e.emoji; if (gn) gn.textContent = e.name; const pe = document.getElementById("portrait-god-emoji"); if (pe) pe.textContent = e.emoji; }
+function updateGodVisual() {
+    const e = GOD_EVOLUTIONS[gameState.godEvolution];
+    const ge = document.getElementById("god-emoji");
+    const gn = document.getElementById("god-evolution-name");
+    if (ge) {
+        if (e.image) {
+            ge.innerHTML = `<img class="god-image" src="${e.image}" alt="${e.emoji}" draggable="false" />`;
+        } else {
+            ge.textContent = e.emoji;
+        }
+    }
+    if (gn) gn.textContent = e.name;
+    const pe = document.getElementById("portrait-god-emoji");
+    if (pe) {
+        if (e.image) {
+            pe.innerHTML = `<img class="portrait-image" src="${e.image}" alt="${e.emoji}" draggable="false" />`;
+        } else {
+            pe.textContent = e.emoji;
+        }
+    }
+}
 
 function generateGodName() {
     seededRandom = createSeededRandom(currentSeed);
@@ -377,7 +411,8 @@ function renderSkillTree() {
         const nd = document.createElement("div"); nd.className = "skill-node"; if (maxed) nd.classList.add("maxed"); if (!parentMet) nd.classList.add("locked"); if (lv>0) nd.classList.add("learned"); if (canBuy) nd.classList.add("available");
         nd.style.left = (n.x-45)+"px"; nd.style.top = (n.y-45)+"px";
         let pb = ""; for (let i=0;i<lv;i++) pb+="■"; for (let i=0;i<n.maxLevel-lv;i++) pb+="□"; if (maxed) { pb = ""; for (let i=0;i<n.maxLevel;i++) pb+="■"; }
-        nd.innerHTML = `<div class="skill-node-icon">${n.icon}</div><div class="skill-node-name">${n.name}</div><div class="skill-node-progress">${pb}</div><div class="skill-node-level">Lv.${lv}/${n.maxLevel}</div>${!parentMet?`<div class="skill-node-locked">🔒</div>`:maxed?`<div class="skill-node-maxed">MAX</div>`:`<div class="skill-node-cost ${canBuy?"can-buy":"cant-buy"}">${cost.toLocaleString()}</div>`}`;
+        const iconHTML = n.iconImage ? `<img class="skill-node-icon-img" src="${n.iconImage}" alt="${n.icon}" draggable="false" />` : n.icon;
+        nd.innerHTML = `<div class="skill-node-icon">${iconHTML}</div><div class="skill-node-name">${n.name}</div><div class="skill-node-progress">${pb}</div><div class="skill-node-level">Lv.${lv}/${n.maxLevel}</div>${!parentMet?`<div class="skill-node-locked">🔒</div>`:maxed?`<div class="skill-node-maxed">MAX</div>`:`<div class="skill-node-cost ${canBuy?"can-buy":"cant-buy"}">${cost.toLocaleString()}</div>`}`;
         nd.addEventListener("click", () => { if (canBuy) { buyUpgrade(n.id); renderSkillTree(); } });
         const tt = document.createElement("div"); tt.className = "skill-tooltip"; tt.innerHTML = `<strong>${n.name}</strong><br>${n.desc}`; nd.appendChild(tt);
         tw.appendChild(nd);
@@ -433,7 +468,15 @@ function setText(id, text) { const el = document.getElementById(id); if (el) el.
 
 function showEvolutionModal(oldName, newName, evolution) {
     const modal = document.getElementById("evolution-modal"); if (!modal) return;
-    setText("evolution-emoji", evolution.emoji); setText("evolution-old-name", oldName); setText("evolution-new-name", newName);
+    const ee = document.getElementById("evolution-emoji");
+    if (ee) {
+        if (evolution.image) {
+            ee.innerHTML = `<img class="evolution-image" src="${evolution.image}" alt="${evolution.emoji}" draggable="false" />`;
+        } else {
+            ee.textContent = evolution.emoji;
+        }
+    }
+    setText("evolution-old-name", oldName); setText("evolution-new-name", newName);
     modal.classList.remove("hidden");
     const sc = modal.querySelector(".evolution-stars"); if (sc) { sc.innerHTML = ""; for (let i=0;i<20;i++) { const s = document.createElement("div"); s.className = "evolution-star"; s.style.left = Math.random()*100+"%"; s.style.top = Math.random()*100+"%"; s.style.animationDelay = Math.random()*0.5+"s"; s.textContent = ["✨","⭐","🌟","💫"][Math.floor(Math.random()*4)]; sc.appendChild(s); } }
     updateAllUI();

@@ -1,8 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "우리 동네 신 키우기 - 동네신에서 유일신으로",
-  description: "지엽적이고 하찮은 동네신으로 시작해 유일신이 되어보세요. 8단계 진화, 16가지 신전 스킬, 5등급 신도 시스템을 가진 클리커 게임",
+  title: "우리 동네 신 키우기 - 클릭으로 키우는 동네신 성장 게임",
+  description:
+    "랜덤으로 탄생한 동네신을 클릭, 신도 포섭, 믿음 수급, 업그레이드 트리, 8단계 진화로 유일신까지 키우는 브라우저 클릭커 게임입니다.",
 };
 
 export default function RootLayout({ children }) {
